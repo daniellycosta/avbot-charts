@@ -1,0 +1,30 @@
+{
+    "country": {
+      "iso": "AR",
+      "name": "Argentina"
+    },
+    "source": "Administración Nacional de Aviación Civil",
+    "scraper": {
+      "engine": "axios",
+      "features": {
+        "baseUrl": "http://ais.anac.gov.ar/",
+        "paths": [
+          {
+            "route": "/aip",
+            "navigations": [
+                {
+                  "selector": "li[id=\"mapri\"]",
+                  "attribute": "src"
+                }
+              ]
+            
+          }
+        ],
+        "chart": {
+            "baseUrl": "${baseUrl}/",
+            "xpath": "//td[contains(text(),'${icao}')]",
+            "attribute": "href"
+        }
+      }
+    }
+  }

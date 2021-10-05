@@ -32,6 +32,16 @@ describe('AL', () => {
   });
 });
 
+describe('AR', () => {
+  test('Found', async () => {
+    expect(await getChartWrapper('AR', 'SABE')).toMatch(uriRegEx);
+  });
+
+  test('Not Found', async () => {
+    expect(await getChartWrapper('AR', 'AL-0001')).toMatch('error');
+  });
+});
+
 describe('AT', () => {
   test('Found', async () => {
     expect(await getChartWrapper('AT', 'LOWG')).toMatch(uriRegEx);
